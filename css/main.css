@@ -1024,7 +1024,13 @@ a {
 }
 @media (max-width: 1024px) {
   .address__map {
-    flex: 0 0 100%;
+    width: 90%;
+    align-self: center;
+  }
+}
+@media (max-width: 576px) {
+  .address__map {
+    max-height: 40vh;
   }
 }
 
