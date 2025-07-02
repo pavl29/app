@@ -1558,7 +1558,7 @@ a {
   -webkit-transition: opacity 0.3s, visibility 0.3s;
   transition: opacity 0.3s, visibility 0.3s;
 }
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .cart-content {
     width: 95vw;
   }
