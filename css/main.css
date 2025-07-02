@@ -1521,6 +1521,15 @@ a {
 .cart {
   position: relative;
 }
+@media (max-width: 1024px) {
+  .cart__descr {
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    width: 0;
+    height: 0;
+  }
+}
 .cart__quantity {
   position: absolute;
   left: 20%;
@@ -1544,6 +1553,11 @@ a {
   -ms-flex-pack: center;
   justify-content: center;
   line-height: 0;
+}
+@media (max-width: 1024px) {
+  .cart__quantity {
+    left: 40%;
+  }
 }
 .cart-content {
   position: absolute;
