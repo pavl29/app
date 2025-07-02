@@ -1024,8 +1024,8 @@ a {
 }
 @media (max-width: 1024px) {
   .address__map {
-    width: 90%;
     align-self: center;
+    width: 90%;
   }
 }
 @media (max-width: 576px) {
