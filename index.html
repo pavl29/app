@@ -20,7 +20,9 @@
   <link rel="preload" href="fonts/GilroyRegular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/GilroySemibold.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/vendor.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
+  <script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script>
   <script defer src="js/main.js"></script>
@@ -54,7 +56,6 @@
     </div>
   </div>
   <div class="container">
-
     <div class="header__wrapper">
       <a>
         <img class="header__logo" src="img/logo_white.svg" width="199" height="68" alt="Логотип компании Spider Audio">
@@ -198,19 +199,43 @@
               Установка
             </a></li>
           <li class="nav__item"><a href="#" class="nav__link nav__link--catalog">
-              <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 1024 1024"><path  d="M704 192h160v736H160V192h160v64h384v-64zM288 512h448v-64H288v64zm0 256h448v-64H288v64zm96-576V96h256v96H384z"/></svg> Каталог
-            </a></li>
-          <li class="nav__item"><a href="#" class="nav__link nav__link--pay">
-              <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 92 92" id="Cart">
+              <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 1024 1024">
                 <path
-                  d="M91.8 27.3 81.1 61c-.8 2.4-2.9 4-5.4 4H34.4c-2.4 0-4.7-1.5-5.5-3.7L13.1 19H4c-2.2 0-4-1.8-4-4s1.8-4 4-4h11.9c1.7 0 3.2 1.1 3.8 2.7L36 57h38l8.5-27H35.4c-2.2 0-4-1.8-4-4s1.8-4 4-4H88c1.3 0 2.5.7 3.2 1.7.8 1 1 2.4.6 3.6zm-55.4 43c-1.7 0-3.4.7-4.6 1.9-1.2 1.2-1.9 2.9-1.9 4.6 0 1.7.7 3.4 1.9 4.6 1.2 1.2 2.9 1.9 4.6 1.9s3.4-.7 4.6-1.9c1.2-1.2 1.9-2.9 1.9-4.6 0-1.7-.7-3.4-1.9-4.6-1.2-1.2-2.9-1.9-4.6-1.9zm35.9 0c-1.7 0-3.4.7-4.6 1.9s-1.9 2.9-1.9 4.6c0 1.7.7 3.4 1.9 4.6 1.2 1.2 2.9 1.9 4.6 1.9 1.7 0 3.4-.7 4.6-1.9 1.2-1.2 1.9-2.9 1.9-4.6 0-1.7-.7-3.4-1.9-4.6s-2.9-1.9-4.6-1.9z">
-                </path>
-              </svg>
-              Корзина
+                  d="M704 192h160v736H160V192h160v64h384v-64zM288 512h448v-64H288v64zm0 256h448v-64H288v64zm96-576V96h256v96H384z" />
+              </svg> Каталог
             </a></li>
         </ul>
-      </nav>
+        <div class="header__cart cart " tabindex="0">
+          <div data-aos="fade-up" data-aos-anchor=".other-element"></div>
+          <div class="cart__text nav__link ">
+            <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 92 92" id="Cart">
+              <path
+                d="M91.8 27.3 81.1 61c-.8 2.4-2.9 4-5.4 4H34.4c-2.4 0-4.7-1.5-5.5-3.7L13.1 19H4c-2.2 0-4-1.8-4-4s1.8-4 4-4h11.9c1.7 0 3.2 1.1 3.8 2.7L36 57h38l8.5-27H35.4c-2.2 0-4-1.8-4-4s1.8-4 4-4H88c1.3 0 2.5.7 3.2 1.7.8 1 1 2.4.6 3.6zm-55.4 43c-1.7 0-3.4.7-4.6 1.9-1.2 1.2-1.9 2.9-1.9 4.6 0 1.7.7 3.4 1.9 4.6 1.2 1.2 2.9 1.9 4.6 1.9s3.4-.7 4.6-1.9c1.2-1.2 1.9-2.9 1.9-4.6 0-1.7-.7-3.4-1.9-4.6-1.2-1.2-2.9-1.9-4.6-1.9zm35.9 0c-1.7 0-3.4.7-4.6 1.9s-1.9 2.9-1.9 4.6c0 1.7.7 3.4 1.9 4.6 1.2 1.2 2.9 1.9 4.6 1.9 1.7 0 3.4-.7 4.6-1.9 1.2-1.2 1.9-2.9 1.9-4.6 0-1.7-.7-3.4-1.9-4.6s-2.9-1.9-4.6-1.9z"
+                fill="#ffffff" class="color000000 svgShape"></path>
+            </svg>
+            <span>
+              Корзина
+            </span>
+            <span class="cart__quantity">0</span>
+          </div>
+          <div class="cart-content">
+            <ul class="cart-content__list list-reset" data-simplebar>
 
+            </ul>
+            <div class="cart-content__bottom">
+              <div class="cart-content__fullprice">
+                <span>Итого:</span>
+                <span class="fullprice product__price">
+                  3 750 ₽
+                </span>
+              </div>
+              <button class="cart-content__btn btn btn-reset">
+                Перейти в карзину
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
     </div>
   </div>
 </header>
@@ -219,22 +244,22 @@
         <section class="hero mb">
       <div class="container hero__container">
         <div class="hero__wrapper">
-          <h1 class="hero__title">
+          <h1 class="hero__title" data-aos="fade-right">
             SpiderAudio — студия автозвука
           </h1>
-          <p class="hero__descr">
+          <p class="hero__descr" data-aos="fade-left">
             Мы-лучшие в вопросе подбора аудиокомпонентов для вашего авто.  Наши мастера — эксперты в своем деле, и соберут
             любой комплект под ваш запрос
           </p>
-          <button class="btn hero__btn">Выбрать автозвук</button>
+          <button class="btn hero__btn" data-aos="fade-up">Выбрать автозвук</button>
         </div>
       </div>
     </section>
 
     <section class="about mb">
-  <div class="container">
+  <div class="container" >
     <div class="about__top">
-      <div class="about__decore">
+      <div class="about__decore" data-aos="fade-left">
         <svg width="78.000000" height="69.583008" viewBox="0 0 78 69.583" fill="none" xmlns="http://www.w3.org/2000/svg"
           xmlns:xlink="http://www.w3.org/1999/xlink">
 
@@ -248,7 +273,7 @@
         </svg>
 
       </div>
-      <div class="about__wrapper">
+      <div class="about__wrapper" data-aos="fade-right">
         <h2 class="about__title">SpiderAudio — эксперты в своем деле.</h2>
         <p class="about__descr">
           Все, что вы хотели узнать про автозвук, можете узнать у нас. Заказать и установить.
@@ -257,7 +282,7 @@
     </div>
     <div class="about__middle">
       <ul class="about__list list-reset">
-        <li class="about__item about__item--guard">
+        <li class="about__item about__item--guard" data-aos="fade-up">
           <div class="about__icon">
             <svg width="33.403992" height="36.000122" viewBox="0 0 33.404 36.0001" fill="none"
               xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -272,7 +297,7 @@
             и качество товара
           </p>
         </li>
-        <li class="about__item about__item--servise">
+        <li class="about__item about__item--servise" data-aos="fade-up">
           <div class="about__icon">
             <svg width="36.028748" height="33.328735" viewBox="0 0 36.0287 33.3287" fill="none"
               xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -288,7 +313,7 @@
             Установка всех компонентов в нашей мастерской
           </p>
         </li>
-        <li class="about__item about__item--payment">
+        <li class="about__item about__item--payment" data-aos="fade-up">
           <div class="about__icon">
             <svg width="36.000000" height="23.624512" viewBox="0 0 36 23.6245" fill="none"
               xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -309,7 +334,7 @@
           </p>
         </li>
       </ul>
-      <div class="about__banner">
+      <div class="about__banner" data-aos="fade-up">
         <img src="img/dynamics.png" alt="Изображение продукции" class="about__img">
         <div class="about__texts">
           <h2 class="about__subtitle">
@@ -354,15 +379,16 @@
     <section class="service mb">
   <div class="container">
     <div class="service__wrapper mb">
-      <div class="service__left">
-        <h2 class="service__title">
+      <div class="service__left" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">
+        <h2 class="service__title" data-aos="fade-right">
           Тюнинг ателье SpiderAudio <br><span>
             Установка автозвука
             в Краснодаре
           </span>
         </h2>
       </div>
-      <div class="service__right">
+      <div class="service__right" data-aos="fade-left">
         <p class="service__descr">
           В установочном центре выполняются работы по установке аудиосистем, охранных комплексов, парковочных радаров;
           так же в комплекс услуг входят работы по шумоизоляции, изготовлению подиумов и коробов.
@@ -374,10 +400,10 @@
       </div>
     </div>
     <div class="service__bottom">
-      <div class="service__pic">
+      <div class="service__pic" data-aos="zoom-out">
         <img src="img/auto.png" alt="Изображение авто">
       </div>
-      <div class="service__form-wrap">
+      <div class="service__form-wrap" data-aos="flip-left">
         <h4 class="service__subtitle">
           Запишитесь на установку!
         </h4>
@@ -400,12 +426,13 @@
 </section>
 
     <section class="products mb">
+    <div data-aos="fade-in"></div>
   <div class="container">
-    <h2 class="products__title">
+    <h2 class="products__title" data-aos="fade-right">
       Товары недели
     </h2>
     <ul class="products__list">
-      <li class="products__item">
+      <li class="products__item" data-aos="slide-up">
         <article class="product">
           <div class="product__img">
             <img src="img/product.png" alt="Изображение товара">
@@ -437,7 +464,7 @@
           </div>
         </article>
       </li>
-      <li class="products__item">
+      <li class="products__item" data-aos="slide-up">
         <article class="product">
           <div class="product__img">
             <img src="img/product2.png" alt="Изображение товара">
@@ -469,7 +496,7 @@
           </div>
         </article>
       </li>
-      <li class="products__item">
+      <li class="products__item" data-aos="slide-up">
         <article class="product">
           <div class="product__img">
             <img src="img/product3.png" alt="Изображение товара">
@@ -501,7 +528,7 @@
           </div>
         </article>
       </li>
-      <li class="products__item">
+      <li class="products__item" data-aos="slide-up">
         <article class="product">
           <div class="product__img">
             <img src="img/product4.png" alt="Изображение товара">
@@ -533,7 +560,7 @@
           </div>
         </article>
       </li>
-      <li class="products__item">
+      <li class="products__item" data-aos="slide-up">
         <article class="product">
           <div class="product__img">
             <img src="img/product.png" alt="Изображение товара">
@@ -565,7 +592,7 @@
           </div>
         </article>
       </li>
-      <li class="products__item">
+      <li class="products__item" data-aos="slide-up">
         <article class="product">
           <div class="product__img">
             <img src="img/product2.png" alt="Изображение товара">
@@ -597,7 +624,7 @@
           </div>
         </article>
       </li>
-      <li class="products__item">
+      <li class="products__item" data-aos="slide-up">
         <article class="product">
           <div class="product__img">
             <img src="img/product3.png" alt="Изображение товара">
@@ -629,7 +656,7 @@
           </div>
         </article>
       </li>
-      <li class="products__item">
+      <li class="products__item" data-aos="slide-up">
         <article class="product">
           <div class="product__img">
             <img src="img/product4.png" alt="Изображение товара">
@@ -661,7 +688,7 @@
           </div>
         </article>
       </li>
-      <li class="products__item">
+      <li class="products__item" data-aos="slide-up">
         <article class="product">
           <div class="product__img">
             <img src="img/product.png" alt="Изображение товара">
@@ -693,7 +720,7 @@
           </div>
         </article>
       </li>
-      <li class="products__item">
+      <li class="products__item" data-aos="slide-up">
         <article class="product">
           <div class="product__img">
             <img src="img/product2.png" alt="Изображение товара">
@@ -725,7 +752,7 @@
           </div>
         </article>
       </li>
-      <li class="products__item">
+      <li class="products__item" data-aos="slide-up">
         <article class="product">
           <div class="product__img">
             <img src="img/product3.png" alt="Изображение товара">
@@ -757,7 +784,7 @@
           </div>
         </article>
       </li>
-      <li class="products__item">
+      <li class="products__item" data-aos="slide-up">
         <article class="product">
           <div class="product__img">
             <img src="img/product3.png" alt="Изображение товара">
@@ -794,10 +821,10 @@
 
     <section class="address mb">
   <div class="container">
-    <h2 class="address__title">
+    <h2 class="address__title" data-aos="fade-right">
       Наш адрес
     </h2>
-    <div class="address__content">
+    <div class="address__content" data-aos="flip-left">
       <div class="address__section">
         <span>
           Забрать заказ или осуществить установку можно по адресу:

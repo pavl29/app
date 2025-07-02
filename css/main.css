@@ -95,6 +95,7 @@
   min-width: 360px;
   min-height: 100%;
   font-size: 16px;
+  overflow-anchor: none;
 }
 
 img {
@@ -256,6 +257,8 @@ a {
 }
 .header__phone::before {
   background-image: url("../img/tel.svg");
+  width: 30px;
+  height: 30px;
 }
 @media (max-width: 576px) {
   .header__phone span {
@@ -271,6 +274,8 @@ a {
   }
 }
 .header__wrapper {
+  position: relative;
+  z-index: 100;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -295,6 +300,18 @@ a {
   }
 }
 
+.nav {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
 .nav__list {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -309,13 +326,6 @@ a {
 }
 @media (max-width: 1024px) {
   .nav__list {
-    -webkit-box-pack: start;
-    -ms-flex-pack: start;
-    justify-content: flex-start;
-  }
-}
-@media (max-width: 1024px) {
-  .nav__list {
     position: fixed;
     right: 0;
     top: 55px;
@@ -326,6 +336,9 @@ a {
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
@@ -845,6 +858,10 @@ a {
 .product__btn:focus {
   outline: 2px dashed #000;
   outline-offset: 3px;
+}
+.product__btn:disabled {
+  opacity: 0.4;
+  pointer-events: none;
 }
 
 .products__title {
@@ -1499,4 +1516,128 @@ a {
   line-height: 25.71px;
   text-align: left;
   color: rgb(255, 255, 255);
+}
+
+.cart {
+  position: relative;
+}
+.cart__quantity {
+  position: absolute;
+  left: 20%;
+  top: -5%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  background-color: rgb(246, 167, 0);
+  border-radius: 100%;
+  color: #000;
+  padding: 5px;
+  width: 20px;
+  height: 20px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  line-height: 0;
+}
+.cart-content {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  width: 45vw;
+  background-color: rgba(0, 0, 0, 0.9607843137);
+  border-radius: 10px;
+  -webkit-box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  -webkit-transition: opacity 0.3s, visibility 0.3s;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+.cart-content__list {
+  max-height: 300px;
+  overflow-y: auto;
+}
+.cart-content__product {
+  border-bottom: 1px solid #F6A700;
+}
+.cart-content__bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+.cart-content__fullprice {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  gap: 1rem;
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19px;
+  text-align: left;
+}
+.cart-product {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 10px 20px;
+}
+.cart-product__img {
+  max-width: 100px;
+  max-height: 100px;
+  margin-right: 20px;
+}
+.cart-product__title {
+  max-width: 280px;
+  font-weight: 600;
+  font-size: 1.13rem;
+  line-height: 1.61rem;
+  text-align: left;
+  color: rgb(255, 255, 255);
+  margin-bottom: 1rem;
+}
+.cart-product__delete {
+  width: 20px;
+  height: 20px;
+  margin-left: auto;
+  margin-right: 20px;
+  background-image: url("../img/trash.svg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: transparent;
+}
+
+.cart.active:hover .cart-content {
+  opacity: 1;
+  visibility: visible;
+}
+
+.simplebar-track .simplebar-vertical .simplebar-scrollbar::before {
+  background: rgba(77, 77, 77, 0.2);
+  border-radius: 5px;
+  width: 100%;
+  opacity: 1;
 }
