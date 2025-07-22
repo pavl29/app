@@ -7,7 +7,7 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="Keywords"
-    content="установка акустики, настройка акустики в краснодаре, настройка акустики в краснодаре,профессиональная установка жк-панелй,установка подиумов,установка сабвуферов,установка колонок,твитеры,усилители,установка аудио-видео оборудования в авто,установка автозвука" />
+    content="установка акустики, настройка акустики в Краснодаре, настройка акустики в Краснодаре,профессиональная установка жк-панелй,установка подиумов,установка сабвуферов,установка колонок,твитеры,усилители,установка аудио-видео оборудования в авто,установка автозвука" />
   <meta name="Description"
     content="Установочная студия Спайдер, сайт профессиональной студии автозвука в Краснодаре, Мы специализируемся на установке, настройке и обслуживании аудиосистем любой сложности для легковых автомобилей, внедорожников и микроавтобусов. Наша команда состоит из сертифицированных специалистов с многолетним опытом работы в индустрии автозвука. Мы используем только современное профессиональное оборудование и комплектующие от ведущих мировых производителей. Работаем с автомобилями любых марок и моделей. Гарантируем качество всех работ и используем только сертифицированные комплектующие. Предоставляем гарантию на все виды услуг. Запишитесь на консультацию прямо сейчас! Поможем создать идеальную акустическую систему для вашего автомобиля." />
   <meta name="theme-color" content="#111111">
@@ -20,9 +20,8 @@
   <link rel="preload" href="fonts/GilroyRegular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/GilroySemibold.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/vendor.css">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
-  <script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script defer src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
   <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script>
   <script defer src="js/main.js"></script>
@@ -218,8 +217,7 @@
             <span class="cart__quantity">0</span>
           </div>
           <div class="cart-content">
-            <ul class="cart-content__list list-reset" data-simplebar>
-
+            <ul class="cart-content__list" data-simplebar>
             </ul>
             <div class="cart-content__bottom">
               <div class="cart-content__fullprice">
@@ -228,8 +226,8 @@
                   3 750 ₽
                 </span>
               </div>
-              <button class="cart-content__btn btn btn-reset">
-                Перейти в карзину
+              <button class="cart-content__btn btn btn-reset" data-graph-path="modal" data-graph-animation="fadeInUp">
+                Оформить заказ
               </button>
             </div>
           </div>
@@ -237,6 +235,54 @@
       </nav>
     </div>
   </div>
+  <div id="modal" class="graph-modal modal">
+    <div class="graph-modal__container modal__container" role="dialog" aria-modal="true" data-graph-target="modal">
+      <button class="btn-reset js-modal-close graph-modal__close" aria-label="Закрыть модальное окно"></button>
+      <div class="graph-modal__content modal__content">
+        <div class="modal__top">
+          <h2 class="modal__title">
+            Оформление заказа
+          </h2>
+          <span class="modal__num">
+            Заказ №
+            <span id="numberOfOrder"></span>
+          </span>
+        </div>
+        <div class="modal__info">
+          <div class="modal__info-item modal__quantity">Товаров в заказе: <span></span></div>
+          <div class="modal__info-item modal__summ">Общая сумма заказа: <span></span></div>
+          <div class="modal__info-item modal__products">
+            <button class="btn-reset modal__info-item modal__open">
+              Состав заказа
+            </button>
+            <ul class="modal__list">
+
+            </ul>
+          </div>
+            <p class="modal__text">
+              Внимание!!!
+              Состав заказа, количество позиций возможно изменить во время подтверждения заказа по телефону!
+            </p>
+        </div>
+        <form id="modalForm" action="#" autocomplete="off" class="modal__form order" method="POST" enctype="multipart/form-data">
+          <label class="order__label">
+            <span class="order__text">Ваше имя</span>
+            <input id="modalName" tabindex="2" type="text" name="Имя" class="input-reset order__input " autocomplete="off" required placeholder="Имя">
+          </label>
+          <label class="order__label order__label-tel">
+            <span class="order__text">Номер телефона</span>
+            <input type="tel" tabindex="3"  name="Телефон" autocomplete="off" class="input-reset modal__tel order__input">
+          </label>
+          <label class="order__label">
+            <span class="order__text">Электронная почта</span>
+            <input id="orderMail" tabindex="4"  type="email" name="Email" class="input-reset order__input " autocomplete="off" required placeholder="example@mail.ru">
+          </label>
+          <button id="submit-btn" class="btn-reset order__btn  btn">Оформить заказ</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
 </header>
 
     <main class="main">
@@ -406,9 +452,9 @@
         <h4 class="service__subtitle">
           Запишитесь на установку!
         </h4>
-        <form action="#" class="form" method="POST" enctype="multipart/form-data">
-          <label class="form__label">
-            <input type="tel" name="Телефон" data-validate-field="tel" class="input-reset input-tel form__input" placeholder="Номер телефона">
+        <form id="serviceForm" action="#" class="form service__form" autocomplete="off" method="POST" enctype="multipart/form-data">
+          <label class="form__label service__label">
+            <input id="serviceTel" type="tel" name="Телефон" class="input-reset service__tel service-tel form__input" placeholder="Номер телефона">
           </label>
           <button class="btn-reset btn form__btn">Записаться</button>
         </form>
@@ -470,11 +516,11 @@
           </div>
           <div class="product__bottom">
             <h3 class="product__title">
-              Акустика Pride Solo Mini 6,5
+              Магнитола Aura AMH-77DSP
             </h3>
 
             <span class="product__price">
-              3 750 ₽
+              5 750 ₽
             </span>
             <button class="product__btn btn">
               <svg width="22.000000" height="21.949707" viewBox="0 0 22 21.9497" fill="none"
@@ -502,11 +548,11 @@
           </div>
           <div class="product__bottom">
             <h3 class="product__title">
-              Акустика Pride Solo Mini 6,5
-            </h3>
+             Акустика Pride Solo v.3 (в комплекте OVERBOOST)
+           </h3>
 
             <span class="product__price">
-              3 750 ₽
+            8 000 ₽
             </span>
             <button class="product__btn btn">
               <svg width="22.000000" height="21.949707" viewBox="0 0 22 21.9497" fill="none"
@@ -566,11 +612,11 @@
           </div>
           <div class="product__bottom">
             <h3 class="product__title">
-              Акустика Pride Solo Mini 6,5
+              Акустика Pride Solo v.3 (в комплекте OVERBOOST)
             </h3>
 
             <span class="product__price">
-              3 750 ₽
+             8 000 ₽
             </span>
             <button class="product__btn btn">
               <svg width="22.000000" height="21.949707" viewBox="0 0 22 21.9497" fill="none"
@@ -630,11 +676,10 @@
           </div>
           <div class="product__bottom">
             <h3 class="product__title">
-              Акустика Pride Solo Mini 6,5
+              Магнитола Aura AMH-77DSP
             </h3>
-
             <span class="product__price">
-              3 750 ₽
+              5 750 ₽
             </span>
             <button class="product__btn btn">
               <svg width="22.000000" height="21.949707" viewBox="0 0 22 21.9497" fill="none"
@@ -694,11 +739,12 @@
           </div>
           <div class="product__bottom">
             <h3 class="product__title">
-              Акустика Pride Solo Mini 6,5
+              Акустика Pride Solo v.3 (в комплекте OVERBOOST)
+
             </h3>
 
             <span class="product__price">
-              3 750 ₽
+              8 000 ₽
             </span>
             <button class="product__btn btn">
               <svg width="22.000000" height="21.949707" viewBox="0 0 22 21.9497" fill="none"
@@ -758,11 +804,11 @@
           </div>
           <div class="product__bottom">
             <h3 class="product__title">
-              Акустика Pride Solo Mini 6,5
+              Магнитола Aura AMH-77DSP
             </h3>
 
             <span class="product__price">
-              3 750 ₽
+              5 750 ₽
             </span>
             <button class="product__btn btn">
               <svg width="22.000000" height="21.949707" viewBox="0 0 22 21.9497" fill="none"
@@ -814,7 +860,9 @@
         </article>
       </li>
     </ul>
-    <a href="##" class="products__link" data-aos="fade-left">Все товары</a>
+    <div class="products__bottom">
+    <a href="##" class="products__link btn btn-reset" data-aos="fade-left">Все товары</a>
+    </div>
   </div>
 </section>
 
@@ -854,7 +902,7 @@
           </span>
         </div>
         <article class="actually" data-aos="flip-up"
-     data-aos-anchor-placement="top-center">
+     data-aos-anchor-placement="top-bottom">
           <div class="actually__open" id="open">
             Сейчас открыто
           </div>
@@ -863,7 +911,7 @@
           </div>
         </article>
       </div>
-      <div class="address__map">
+      <div class="address__map" data-aos="fade-right">
 
         <script type="text/javascript" charset="utf-8" async
           src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A1723659a716be44ab38a4e5c64da739285f04b3de4dd1a5add1df63f633a7b3d&amp;width=100%&amp;height=480&amp;lang=ru_RU&amp;scroll=false&amp;multiTouch=false"></script>
