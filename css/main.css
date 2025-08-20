@@ -1589,22 +1589,6 @@ a {
   font-size: 16px;
   line-height: 1.5;
 }
-.order-popup__button {
-  background-color: #4a76a8;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  -webkit-transition: background-color 0.3s ease;
-  transition: background-color 0.3s ease;
-}
-@media (any-hover: hover) {
-  .order-popup__button:hover {
-    background-color: rgb(58.4049586777, 93.132231405, 132.5950413223);
-  }
-}
 
 @-webkit-keyframes cartBounce {
   0% {
