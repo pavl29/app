@@ -35,12 +35,15 @@
     <div class="container">
       <div class="header__reference">
         <div class="header__contacts">
-          <a class="header__phone" aria-label="Кнопка позвонить" href="tel:+79184438082"><span>+7 918 443-80-82</span></a>
-          <a class="header__wsp" aria-label="Кнопка написать в WhattsApp" href="http://wa.me/79094440062" target="_blank"><span>Написать в
+          <a class="header__phone" aria-label="Кнопка позвонить" href="tel:+79184438082"><span>+7 918
+              443-80-82</span></a>
+          <a class="header__wsp" aria-label="Кнопка написать в WhattsApp" href="http://wa.me/79094440062"
+            target="_blank"><span>Написать в
               WhatsApp</span></a>
         </div>
         <div class="location">
-          <a class="location__link" aria-label="Кнопка местоположение оргинизации" href="https://yandex.ru/maps/-/CHgPbF5k" target="_blank">
+          <a class="location__link" aria-label="Кнопка местоположение оргинизации"
+            href="https://yandex.ru/maps/-/CHgPbF5k" target="_blank">
             <svg class="location__img" xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 48 48">
               <g fill="none" stroke-linejoin="round" stroke-width="4">
                 <path stroke-linecap="round"
@@ -205,75 +208,77 @@
               </svg> Каталог
             </a></li>
         </ul>
-           <button class="header__cart-button btn-reset" id="cart-button">
-                <span class="header__cart-count" id="cart-count">0</span>
-            </button>
+        <button class="header__cart-button btn-reset" id="cart-button">
+          <span class="header__cart-count" id="cart-count">0</span>
+        </button>
       </nav>
     </div>
   </div>
-    <div class="cart-modal" id="cart-modal">
-        <div class="cart-modal__overlay"></div>
-        <div class="cart-modal__content">
-            <button class="cart-modal__close" id="close-cart">×</button>
-            <div class="cart-modal__header">
-                <h2 class="cart-modal__title">Корзина</h2>
-                <div class="cart-modal__order-number" id="cart-order-number"><span>Заказ №</span> </div>
-            </div>
-            <div class="cart-modal__items" id="cart-items">
-                <div class="cart-modal__empty">Ваша корзина пуста</div>
-            </div>
-                   <form id="modalForm" action="#" class="modal__form order" method="POST"
-          enctype="multipart/form-data">
-          <label class="order__label">
-            <span class="order__text">Ваше имя</span>
-            <input id="modalName" tabindex="2" type="text" name="Имя" class="input-reset order__input "
-                required placeholder="Имя">
-          </label>
-          <label class="order__label order__label-tel">
-            <span class="order__text">Номер телефона</span>
-            <input autocomplete="off" type="tel" tabindex="3" name="Телефон"
-              class="input-reset modal__tel order__input">
-          </label>
-          <label class="order__label">
-            <span class="order__text">Электронная почта</span>
-            <input id="orderMail" tabindex="4" type="email" name="Email" class="input-reset order__input "
-                required placeholder="example@mail.ru">
-          </label>
-          <div class="spinner center">
-            <div class="spinner-blade"></div>
-            <div class="spinner-blade"></div>
-            <div class="spinner-blade"></div>
-            <div class="spinner-blade"></div>
-            <div class="spinner-blade"></div>
-            <div class="spinner-blade"></div>
-            <div class="spinner-blade"></div>
-            <div class="spinner-blade"></div>
-            <div class="spinner-blade"></div>
-            <div class="spinner-blade"></div>
-            <div class="spinner-blade"></div>
-            <div class="spinner-blade"></div>
-          </div>
-                <div class="cart-modal__total">
-                <span>Итого:</span>
-                <span class="cart-modal__total-price" id="cart-total">0 ₽</span>
-            </div>
-            <button aria-label="Кнопка оформить заказ" class="btn-reset order__btn  btn  submit-btn" id="order-button" disabled>Оформить заказ</button>
-        </form>
-
+  <div class="cart-modal" id="cart-modal">
+    <div class="cart-modal__overlay"></div>
+    <div class="cart-modal__content">
+      <button class="cart-modal__close" id="close-cart">×</button>
+      <div class="cart-modal__header">
+        <h2 class="cart-modal__title">Корзина</h2>
+        <div class="cart-modal__order-number" id="cart-order-number"></div>
+      </div>
+      <div class="cart-modal__items" id="cart-items">
+        <div class="cart-modal__empty">Ваша корзина пуста</div>
+      </div>
+      <form id="modalForm" action="#" class="modal__form order" method="POST" enctype="multipart/form-data">
+        <label class="order__label">
+          <span class="order__text">Ваше имя</span>
+          <input id="modalName" tabindex="2" type="text" name="Имя" class="input-reset order__input " required
+            placeholder="Имя">
+        </label>
+        <label class="order__label order__label-tel">
+          <span class="order__text">Номер телефона</span>
+          <input autocomplete="off" type="tel" tabindex="3" name="Телефон" class="input-reset modal__tel order__input">
+        </label>
+        <label class="order__label">
+          <span class="order__text">Электронная почта</span>
+          <input id="orderMail" tabindex="4" type="email" name="Email" class="input-reset order__input " required
+            placeholder="example@mail.ru">
+        </label>
+        <div class="spinner center">
+          <div class="spinner-blade"></div>
+          <div class="spinner-blade"></div>
+          <div class="spinner-blade"></div>
+          <div class="spinner-blade"></div>
+          <div class="spinner-blade"></div>
+          <div class="spinner-blade"></div>
+          <div class="spinner-blade"></div>
+          <div class="spinner-blade"></div>
+          <div class="spinner-blade"></div>
+          <div class="spinner-blade"></div>
+          <div class="spinner-blade"></div>
+          <div class="spinner-blade"></div>
         </div>
-    </div>
-
-    <div class="order-popup" id="order-popup">
-        <div class="order-popup__overlay"></div>
-        <div class="order-popup__content">
-            <button class="order-popup__close" id="close-popup">×</button>
-            <h2 class="order-popup__title">Заказ успешно оформлен!</h2>
-            <p class="order-popup__order-number" id="order-number"></p>
-            <p class="order-popup__message">Спасибо за ваш заказ! Наш менеджер свяжется с вами в ближайшее время для подтверждения деталей.</p>
-            <button class="order-popup__button" id="close-popup-button">Закрыть</button>
+        <div class="cart-modal__total">
+          <span>Итого:</span>
+          <span class="cart-modal__total-price" id="cart-total">0 ₽</span>
         </div>
-    </div>
+        <button aria-label="Кнопка оформить заказ" class="btn-reset order__btn  btn  submit-btn" id="order-button"
+          disabled>Оформить заказ</button>
+      </form>
 
+    </div>
+  </div>
+
+  <div class="order-popup" id="order-popup">
+    <div class="order-popup__overlay"></div>
+    <div class="order-popup__content">
+      <button class="order-popup__close" id="close-popup">×</button>
+      <h2 class="order-popup__title">Заказ успешно оформлен!</h2>
+      <p class="order-popup__order-number" id="order-number"></p>
+      <p class="order-popup__message">Спасибо за ваш заказ! Наш менеджер свяжется с вами в ближайшее время для
+        подтверждения деталей.</p>
+      <button class="order-popup__button" id="close-popup-button">Закрыть</button>
+    </div>
+  </div>
+<div class="cart-item__btns">
+
+</div>
 </header>
 
     <main class="main">

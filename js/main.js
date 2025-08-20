@@ -10318,12 +10318,14 @@ document.addEventListener('DOMContentLoaded', function () {
                     <h3 class="cart-item__title">${item.name}</h3>
                     <p class="cart-item__price">${item.price.toLocaleString()} ₽</p>
                 </div>
+                <div class="cart-item__btns">
                 <div class="cart-item__quantity">
                     <button class="cart-item__quantity-button" data-action="decrease" data-id="${item.id}">-</button>
                     <span class="cart-item__quantity-value">${item.quantity}</span>
                     <button class="cart-item__quantity-button" data-action="increase" data-id="${item.id}">+</button>
                 </div>
                 <button class="cart-item__remove" data-id="${item.id}">×</button>
+                </div>
             `;
       cartItemsContainer.appendChild(cartItemElement);
     });
