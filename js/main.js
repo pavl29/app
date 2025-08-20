@@ -11023,12 +11023,14 @@ document.addEventListener('DOMContentLoaded', function () {
                     <h3 class="cart-item__title">${item.name}</h3>
                     <p class="cart-item__price">${item.price.toLocaleString()} ₽</p>
                 </div>
+                 <div class="cart-item__btns">
                 <div class="cart-item__quantity">
                     <button class="cart-item__quantity-button" data-action="decrease" data-id="${item.id}">-</button>
                     <span class="cart-item__quantity-value">${item.quantity}</span>
                     <button class="cart-item__quantity-button" data-action="increase" data-id="${item.id}">+</button>
                 </div>
                 <button class="cart-item__remove" data-id="${item.id}">×</button>
+                </div>
             `;
       cartItemsContainer.appendChild(cartItemElement);
     });
@@ -11199,7 +11201,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let email = self.querySelector('[name="Email"]').value;
     let fprice = self.querySelector('#cart-total').innerHTML;
     let fpriceClean = String(fprice).replace(/\&nbsp;/g, '').trim();
-    let dest = prodClean.map(item => `Наименование: ${item.name}` + ` Цена: ${item.price}руб` + ` Количество: ${item.quantity} шт.<br>`);
+    let dest = prodClean.map(item => `Наименование: ${item.name}` + ` Цена: ${item.price}руб` + ` Количество: ${item.quantity} шт.<br>`).join(' ');
     formData.append('Товары', dest);
     formData.append('Имя', name);
     formData.append('Телефон', `<a href="tel:${tel}">${tel}</a>`);
