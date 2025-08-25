@@ -270,6 +270,9 @@ a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   font-weight: 600;
   font-size: 1rem;
   line-height: 1.43rem;
@@ -280,23 +283,19 @@ a {
   transition: all 0.3s ease-in-out;
   gap: 9px;
 }
-@media (max-width: 576px) {
-  .header__contacts a {
-    font-size: 0.8rem;
+.header__contacts a svg {
+  width: 35px;
+  height: 35px;
+}
+@media (max-width: 768px) {
+  .header__contacts a svg {
+    width: 28px;
+    height: 28px;
   }
 }
-.header__contacts a::before {
-  content: "";
-  display: block;
-  width: 20px;
-  height: 20px;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-@media (any-hover: hover) {
-  .header__contacts a:hover {
-    color: #4f8ff0;
+@media (max-width: 576px) {
+  .header__contacts a span {
+    display: none;
   }
 }
 @media (max-width: 576px) {
@@ -304,24 +303,6 @@ a {
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
-  }
-}
-.header__phone::before {
-  width: 30px;
-  height: 30px;
-  background-image: url("../img/tel.svg");
-}
-@media (max-width: 576px) {
-  .header__phone span {
-    display: none;
-  }
-}
-.header__wsp::before {
-  background-image: url("../img/whatsapp.svg");
-}
-@media (max-width: 576px) {
-  .header__wsp span {
-    display: none;
   }
 }
 .header__wrapper {
