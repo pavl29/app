@@ -213,6 +213,21 @@
         </button>
       </nav>
     </div>
+    <div class="search-widget">
+      <form class="search-widget__form" id="search-form">
+        <div class="search-widget__input-container">
+          <input type="text" class="search-widget__input" id="search-input" placeholder="Поиск товаров...">
+          <button type="submit" class="search-widget__button">
+            <svg class="search-widget__icon" width="20" height="20" viewBox="0 0 20 20" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M19.5606 17.4394L15.7525 13.6313C16.9394 12.2152 17.6562 10.3828 17.6562 8.39844C17.6562 3.84531 13.8109 0 9.25781 0C4.70469 0 0.859375 3.84531 0.859375 8.39844C0.859375 12.9516 4.70469 16.7969 9.25781 16.7969C11.2422 16.7969 13.0746 16.0801 14.4907 14.8932L18.2988 18.7013C18.5195 18.922 18.8094 19.0324 19.0992 19.0324C19.3891 19.0324 19.6789 18.922 19.8996 18.7013C20.341 18.2599 20.341 17.5609 19.5606 17.4394ZM9.25781 14.7969C5.74609 14.7969 2.85938 11.9102 2.85938 8.39844C2.85938 4.88672 5.74609 2 9.25781 2C12.7695 2 15.6562 4.88672 15.6562 8.39844C15.6562 11.9102 12.7695 14.7969 9.25781 14.7969Z"
+                fill="currentColor" />
+            </svg>
+          </button>
+        </div>
+      </form>
+    </div>
   </div>
   <div class="cart-modal" id="cart-modal">
     <div class="cart-modal__overlay"></div>
@@ -242,26 +257,27 @@
             placeholder="example@mail.ru">
         </label>
 
-        <div class="spinner center">
-          <div class="spinner-blade"></div>
-          <div class="spinner-blade"></div>
-          <div class="spinner-blade"></div>
-          <div class="spinner-blade"></div>
-          <div class="spinner-blade"></div>
-          <div class="spinner-blade"></div>
-          <div class="spinner-blade"></div>
-          <div class="spinner-blade"></div>
-          <div class="spinner-blade"></div>
-          <div class="spinner-blade"></div>
-          <div class="spinner-blade"></div>
-          <div class="spinner-blade"></div>
-        </div>
         <div class="cart-modal__total">
           <span>Итого:</span>
           <span class="cart-modal__total-price" id="cart-total">0 ₽</span>
         </div>
         <button aria-label="Кнопка оформить заказ" class="btn-reset order__btn  btn  submit-btn" id="order-button"
-          disabled>Оформить заказ</button>
+          disabled> <span id="orderBtnText"> Оформить заказ</span>
+          <div class="spinner center">
+            <div class="spinner-blade"></div>
+            <div class="spinner-blade"></div>
+            <div class="spinner-blade"></div>
+            <div class="spinner-blade"></div>
+            <div class="spinner-blade"></div>
+            <div class="spinner-blade"></div>
+            <div class="spinner-blade"></div>
+            <div class="spinner-blade"></div>
+            <div class="spinner-blade"></div>
+            <div class="spinner-blade"></div>
+            <div class="spinner-blade"></div>
+            <div class="spinner-blade"></div>
+          </div>
+        </button>
       </form>
 
     </div>
@@ -474,7 +490,7 @@
       Товары недели
     </h2>
     <ul class="products">
-      <li class="product-card" data-id="1" data-name="Акустика Pride Solo Mini 6,5" data-price="7990"
+      <li class="product-card" data-aos="fade-up" data-id="1" data-name="Акустика Pride Solo Mini 6,5" data-price="7990"
         data-image="https://magnitolkin.ru/wa-data/public/shop/products/77/46/224677/images/412192/412192.970.jpg">
         <img src="https://magnitolkin.ru/wa-data/public/shop/products/77/46/224677/images/412192/412192.970.jpg"
           alt="Смартфон Galaxy X" class="product-card__image">
@@ -486,7 +502,7 @@
         </div>
       </li>
 
-      <li class="product-card" data-id="2" data-name="Сабвуфер Pride S.3 10"  data-price="4340"
+      <li class="product-card" data-aos="fade-up" data-id="2" data-name="Сабвуфер Pride S.3 10"  data-price="4340"
         data-image="https://magnitolkin.ru/wa-data/public/shop/products/77/46/224677/images/412192/412192.970.jpg">
         <img src="https://magnitolkin.ru/wa-data/public/shop/products/77/46/224677/images/412192/412192.970.jpg"
           alt="Сабвуфер Pride S.3 10" class="product-card__image">
@@ -498,7 +514,7 @@
         </div>
       </li>
 
-      <li class="product-card" data-id="3" data-name="Сабвуфер Pride S.4 12" data-price="5340"
+      <li class="product-card" data-aos="fade-up" data-id="3" data-name="Сабвуфер Pride S.4 12" data-price="5340"
         data-image="https://pridecaraudio.com/download/products/big/605.jpg">
         <img src="https://pridecaraudio.com/download/products/big/605.jpg"
           alt="Сабвуфер Pride S.4 12" class="product-card__image">
@@ -510,7 +526,7 @@
         </div>
       </li>
 
-      <li class="product-card" data-id="4" data-name="Сабвуфер Pride S.4 10" data-price="4990"
+      <li class="product-card" data-aos="fade-up" data-id="4" data-name="Сабвуфер Pride S.4 10" data-price="4990"
         data-image="https://pridecaraudio.com/download/products/big/604.jpg">
         <img src="https://pridecaraudio.com/download/products/big/604.jpg"
           alt="Смартфон Galaxy X" class="product-card__image">
@@ -522,7 +538,7 @@
         </div>
       </li>
 
-      <li class="product-card" data-id="5" data-name="Apex A.5" data-price="8990"
+      <li class="product-card" data-aos="fade-up" data-id="5" data-name="Apex A.5" data-price="8990"
         data-image="https://pridecaraudio.com/download/products/big/641.jpg">
         <img src="https://pridecaraudio.com/download/products/big/641.jpg"
           alt="Смартфон Galaxy X" class="product-card__image">
@@ -534,7 +550,7 @@
         </div>
       </li>
 
-      <li class="product-card" data-id="6" data-name="Акустика Pride Solo Mini 6,5" data-price="7990"
+      <li class="product-card" data-aos="fade-up" data-id="6" data-name="Акустика Pride Solo Mini 6,5" data-price="7990"
         data-image="https://magnitolkin.ru/wa-data/public/shop/products/77/46/224677/images/412192/412192.970.jpg">
         <img src="https://magnitolkin.ru/wa-data/public/shop/products/77/46/224677/images/412192/412192.970.jpg"
           alt="Смартфон Galaxy X" class="product-card__image">
@@ -546,7 +562,7 @@
         </div>
       </li>
 
-      <li class="product-card" data-id="7" data-name="Акустика Pride Solo Mini 6,5" data-price="7990"
+      <li class="product-card" data-aos="fade-up" data-id="7" data-name="Акустика Pride Solo Mini 6,5" data-price="7990"
         data-image="https://magnitolkin.ru/wa-data/public/shop/products/77/46/224677/images/412192/412192.970.jpg">
         <img src="https://magnitolkin.ru/wa-data/public/shop/products/77/46/224677/images/412192/412192.970.jpg"
           alt="Смартфон Galaxy X" class="product-card__image">
@@ -558,7 +574,7 @@
         </div>
       </li>
 
-      <li class="product-card" data-id="8" data-name="Магнитола Aura AMH-77DSP" data-price="59990"
+      <li class="product-card" data-aos="fade-up" data-id="8" data-name="Магнитола Aura AMH-77DSP" data-price="59990"
         data-image="https://cdn1.ozone.ru/s3/multimedia-l/6374019825.jpg">
         <img src="https://cdn1.ozone.ru/s3/multimedia-l/6374019825.jpg" alt="Магнитола Aura AMH-77DSP"
           class="product-card__image">
@@ -570,7 +586,7 @@
         </div>
       </li>
 
-      <li class="product-card" data-id="9" data-name="Акустика Pride Solo v.3 (в комплекте OVERBOOST)" data-price="7990"
+      <li class="product-card" data-aos="fade-up" data-id="9" data-name="Акустика Pride Solo v.3 (в комплекте OVERBOOST)" data-price="7990"
         data-image="https://avatars.mds.yandex.net/get-mpic/4011308/2a000001920f45c4990363007f04d4a669c6/orig">
         <img src="https://avatars.mds.yandex.net/get-mpic/4011308/2a000001920f45c4990363007f04d4a669c6/orig"
           alt="Акустика Pride Solo v.3 (в комплекте OVERBOOST)" class="product-card__image">
@@ -582,7 +598,7 @@
         </div>
       </li>
 
-      <li class="product-card" data-id="10" data-name="Акустика Pride Solo v.3 (в комплекте OVERBOOST)" data-price="7990"
+      <li class="product-card" data-aos="fade-up" data-id="10" data-name="Акустика Pride Solo v.3 (в комплекте OVERBOOST)" data-price="7990"
         data-image="https://avatars.mds.yandex.net/get-mpic/4011308/2a000001920f45c4990363007f04d4a669c6/orig">
         <img src="https://avatars.mds.yandex.net/get-mpic/4011308/2a000001920f45c4990363007f04d4a669c6/orig"
           alt="Акустика Pride Solo v.3 (в комплекте OVERBOOST)" class="product-card__image">
@@ -594,7 +610,7 @@
         </div>
       </li>
 
-      <li class="product-card" data-id="11" data-name="Акустика Pride Solo v.3 (в комплекте OVERBOOST)" data-price="7990"
+      <li class="product-card" data-aos="fade-up" data-id="11" data-name="Акустика Pride Solo v.3 (в комплекте OVERBOOST)" data-price="7990"
         data-image="https://avatars.mds.yandex.net/get-mpic/4011308/2a000001920f45c4990363007f04d4a669c6/orig">
         <img src="https://avatars.mds.yandex.net/get-mpic/4011308/2a000001920f45c4990363007f04d4a669c6/orig"
           alt="Акустика Pride Solo v.3 (в комплекте OVERBOOST)" class="product-card__image">
@@ -606,7 +622,7 @@
         </div>
       </li>
 
-      <li class="product-card" data-id="12" data-name="Акустика Pride Solo v.3 (в комплекте OVERBOOST)" data-price="7990"
+      <li class="product-card" data-aos="fade-up" data-id="12" data-name="Акустика Pride Solo v.3 (в комплекте OVERBOOST)" data-price="7990"
         data-image="https://avatars.mds.yandex.net/get-mpic/4011308/2a000001920f45c4990363007f04d4a669c6/orig">
         <img src="https://avatars.mds.yandex.net/get-mpic/4011308/2a000001920f45c4990363007f04d4a669c6/orig"
           alt="Акустика Pride Solo v.3 (в комплекте OVERBOOST)" class="product-card__image">
