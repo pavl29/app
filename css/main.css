@@ -710,9 +710,9 @@ a {
   line-height: 28px;
   background-color: rgba(0, 0, 0, 0.5960784314);
 }
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .hero__descr {
-    margin-bottom: 100px;
+    margin-bottom: 180px;
   }
 }
 @media (max-width: 768px) {
@@ -726,16 +726,6 @@ a {
   bottom: 10%;
   left: 50%;
 }
-@media (min-width: 1025px) {
-  .arrow {
-    display: none;
-  }
-}
-@media (max-width: 1024px) {
-  .arrow {
-    display: block;
-  }
-}
 
 .arrow:before,
 .arrow:after {
@@ -747,10 +737,21 @@ a {
   height: 7px;
   border-radius: 10px;
   display: block;
-  background: #fff;
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
+}
+@media (max-width: 1024px) {
+  .arrow:before,
+  .arrow:after {
+    background: #000;
+  }
+}
+@media (max-width: 768px) {
+  .arrow:before,
+  .arrow:after {
+    background: #fff;
+  }
 }
 
 .arrow:after {
