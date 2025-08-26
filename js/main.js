@@ -10233,7 +10233,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const closePopupButton = document.getElementById('close-popup');
   const closePopupButton2 = document.getElementById('close-popup-button');
   const cartPreloader = document.querySelector('.spinner');
-  const orderBtnText = document.querySelector('#orderBtnText');
+  const orderBtnText = document.querySelector('.orderBtnText');
 
   // Данные корзины
   let cart = [];
