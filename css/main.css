@@ -1046,12 +1046,12 @@ a {
 }
 @media (max-width: 1024px) {
   .mb {
-    margin-bottom: 75px;
+    margin-bottom: 50px;
   }
 }
 @media (max-width: 576px) {
   .mb {
-    margin-bottom: 30px;
+    margin-bottom: 15px;
   }
 }
 
@@ -3329,16 +3329,84 @@ a {
 .category__item {
   -ms-grid-column-span: 3;
   grid-column: 3 span;
-  height: 280px;
+  max-height: 300px;
+}
+.category__card {
+  height: 100%;
+  border: 1px solid #000;
+  border-radius: 10px;
+  padding: 1rem;
+  padding-bottom: 2rem;
+  -webkit-box-shadow: 0 10px 10px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.35);
+  -webkit-transition: -webkit-transform 0.3s ease, -webkit-box-shadow 0.3s ease;
+  transition: -webkit-transform 0.3s ease, -webkit-box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, -webkit-transform 0.3s ease, -webkit-box-shadow 0.3s ease;
+}
+@media (any-hover: hover) {
+  .category__card:hover {
+    -webkit-transform: translateY(-5px);
+    -ms-transform: translateY(-5px);
+    transform: translateY(-5px);
+    -webkit-box-shadow: 0 15px 15px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.6);
+  }
 }
 .category__link {
-  display: inline-block;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  gap: 1rem;
 }
 .category__img {
-  -o-object-fit: contain;
-  object-fit: contain;
   width: 100%;
   height: 100%;
+  max-width: 190px;
+  max-height: 190px;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+.category__subtitle {
+  background-color: #000;
+  color: #F6A700;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 1rem;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.linkReward {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: 2rem;
+  color: currentColor;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.linkReward svg {
+  max-width: 45px;
 }
 
 .search-widget {
@@ -3423,76 +3491,4 @@ a {
 }
 .search-widget__icon {
   display: block;
-}
-
-/* From Uiverse.io by JustCode14 */
-.flip-card {
-  background-color: transparent;
-  width: 100%;
-  height: 100%;
-  -webkit-perspective: 1000px;
-  perspective: 1000px;
-  font-family: sans-serif;
-}
-
-.flip__title {
-  font-size: 1.5em;
-  font-weight: 900;
-  text-align: center;
-  margin: 0;
-}
-
-.flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  -webkit-transition: -webkit-transform 0.6s;
-  transition: -webkit-transform 0.6s;
-  transition: transform 0.6s;
-  transition: transform 0.6s, -webkit-transform 0.6s;
-  -webkit-transition-timing-function: cubic-bezier(0.61, 0.98, 0.48, 1.01);
-  transition-timing-function: cubic-bezier(0.61, 0.98, 0.48, 1.01);
-  -webkit-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-}
-
-.flip-card:hover .flip-card-inner {
-  -webkit-transform: rotate(180deg) rotateX(180deg);
-  transform: rotate(180deg) rotateX(180deg);
-}
-
-.flip-card-front,
-.flip-card-back {
-  -webkit-box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
-  box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
-  position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  border-radius: 1rem;
-}
-
-.flip-card-front {
-  padding: 1rem;
-  background: #fff;
-  color: #000;
-}
-
-.flip-card-back {
-  background: #000;
-  color: #fff;
-  -webkit-transform: rotateY(180deg);
-  transform: rotateY(180deg);
 }
