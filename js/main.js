@@ -10134,7 +10134,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_cartDeep_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/cartDeep.js */ "./src/js/components/cartDeep.js");
 /* harmony import */ var _components_validate_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/validate.js */ "./src/js/components/validate.js");
 /* harmony import */ var _components_signUp_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/signUp.js */ "./src/js/components/signUp.js");
-/* harmony import */ var _components_search_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/search.js */ "./src/js/components/search.js");
 
 
 
@@ -10142,6 +10141,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+// import search  from './components/search.js';
 
 /***/ }),
 
@@ -10617,82 +10617,6 @@ document.addEventListener('DOMContentLoaded', function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _functions_burger_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../functions/burger.js */ "./src/js/functions/burger.js");
 
-
-/***/ }),
-
-/***/ "./src/js/components/search.js":
-/*!*************************************!*\
-  !*** ./src/js/components/search.js ***!
-  \*************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// search-widget.js
-class SearchWidget {
-  constructor() {
-    this.searchForm = document.getElementById('search-form');
-    this.searchInput = document.getElementById('search-input');
-    this.init();
-  }
-  init() {
-    // Обработчики событий
-    this.searchForm.addEventListener('submit', this.handleSubmit.bind(this));
-  }
-
-  // Обработка отправки формы
-  handleSubmit(e) {
-    e.preventDefault();
-    const query = this.searchInput.value.trim();
-    if (query.length < 2) {
-      this.showMessage('Введите хотя бы 2 символа для поиска', 'error');
-      return;
-    }
-
-    // Перенаправляем на страницу поиска
-    window.location.href = `/search.html?q=${encodeURIComponent(query)}`;
-  }
-
-  // Показать сообщение
-  showMessage(message) {
-    let type = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'info';
-    // Создаем элемент сообщения
-    const messageEl = document.createElement('div');
-    messageEl.className = `search-message search-message--${type}`;
-    messageEl.textContent = message;
-
-    // Добавляем стили
-    messageEl.style.position = 'fixed';
-    messageEl.style.top = '20px';
-    messageEl.style.left = '50%';
-    messageEl.style.transform = 'translateX(-50%)';
-    messageEl.style.padding = '10px 20px';
-    messageEl.style.background = type === 'info' ? '#2196F3' : '#F44336';
-    messageEl.style.color = 'white';
-    messageEl.style.borderRadius = '4px';
-    messageEl.style.zIndex = '10000';
-    messageEl.style.boxShadow = '0 2px 10px rgba(0,0,0,0.2)';
-
-    // Добавляем в DOM
-    document.body.appendChild(messageEl);
-
-    // Удаляем через 3 секунды
-    setTimeout(() => {
-      messageEl.style.opacity = '0';
-      messageEl.style.transition = 'opacity 0.5s';
-      setTimeout(() => {
-        if (document.body.contains(messageEl)) {
-          document.body.removeChild(messageEl);
-        }
-      }, 500);
-    }, 3000);
-  }
-}
-
-// Инициализация виджета поиска после загрузки DOM
-document.addEventListener('DOMContentLoaded', () => {
-  new SearchWidget();
-});
 
 /***/ }),
 
