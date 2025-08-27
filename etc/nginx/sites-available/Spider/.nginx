@@ -1,0 +1,38 @@
+server {
+    listen 80;
+    server_name yourdomain.com;
+    root /var/www/yourdomain.com;
+
+    # 1. ДЛИТЕЛЬНОЕ КЕШИРОВАНИЕ ДЛЯ ВЕРСИОНИРОВАННЫХ ФАЙЛОВ
+    # Предполагается, что в именах файлов есть хэш (напр., style.a1b2c3.css)
+    location ~* \.(css|js|png|jpg|jpeg|gif|ico|svg|woff2|woff|ttf|eot)$ {
+        # Проверяем, есть ли в имени файла хэш (8-символьная строка из букв/цифр)
+        # Это упрощенное правило, оно сработает для большинства случаев.
+        if ($request_uri ~* ".*\.([a-f0-9]{8,})\.(css|js|png|jpg|jpeg|gif|ico|svg|woff2|woff|ttf|eot)$") {
+          add_header Cache-Control "public, immutable, max-age=31536000";
+        }
+        # Если файл без хэша, кешируем ненадолго с обязательной проверкой
+        if ($request_uri !~* ".*\.([a-f0-9]{8,})\.(css|js|png|jpg|jpeg|gif|ico|svg|woff2|woff|ttf|eot)$") {
+          add_header Cache-Control "public, must-revalidate, max-age=86400";
+        }
+        expires 1y; # Для совместимости со старыми клиентами
+    }
+
+    # 2. КЕШИРОВАНИЕ С ПРОВЕРКОЙ ДЛЯ ГЛАВНОЙ СТРАНИЦЫ И HTML
+    location ~* \.html?$ {
+        add_header Cache-Control "no-cache, max-age=0";
+    }
+
+    # 3. ЗАПРЕТ КЕШИРОВАНИЯ ДЛЯ КРИТИЧЕСКИХ API-ЭНДПОИНТОВ
+    location ~* ^/api/(checkout|payment|user-profile) {
+        add_header Cache-Control "no-store, max-age=0";
+    }
+
+    # 4. КОРОТКОЕ КЕШИРОВАНИЕ ДЛЯ ДИНАМИЧЕСКИХ СТРАНИЦ (напр., каталог)
+    # Если у вас есть отдельный путь для динамических данных
+    location /dynamic-data/ {
+        add_header Cache-Control "public, must-revalidate, max-age=600"; # 10 минут
+    }
+
+    # ... остальная конфигурация (php-fpm, proxy_pass и т.д.)
+}

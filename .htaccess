@@ -1,0 +1,21 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+</IfModule>
+
+<IfModule mod_headers.c>
+    # 1. ДЛИТЕЛЬНОЕ КЕШИРОВАНИЕ ДЛЯ ВЕРСИОНИРОВАННЫХ ФАЙЛОВ
+    # Файлы, содержащие в названии хэш (например, .a1b2c3d4.)
+    <FilesMatch "\.([a-f0-9]{8,})\.(css|js|png|jpg|jpeg|gif|ico|svg|woff2|woff|ttf|eot)$">
+        Header set Cache-Control "public, immutable, max-age=31536000"
+    </FilesMatch>
+
+    # 2. КЕШИРОВАНИЕ С ПРОВЕРКОЙ ДЛЯ ОСТАЛЬНОЙ СТАТИКИ
+    <FilesMatch "\.(css|js|png|jpg|jpeg|gif|ico|svg|woff2|woff|ttf|eot)$">
+        Header set Cache-Control "public, must-revalidate, max-age=86400"
+    </FilesMatch>
+
+    # 3. ДЛЯ HTML-ФАЙЛОВ - КЕШИРОВАНИЕ С ПРОВЕРКОЙ
+    <FilesMatch "\.(html?)$">
+        Header set Cache-Control "no-cache, max-age=0"
+    </FilesMatch>
+</IfModule>
