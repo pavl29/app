@@ -24,8 +24,8 @@
   <script defer
     src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script>
   <script defer src="js/main.js"></script>
-  <link rel="stylesheet" href="css/vendor.css">
-  <link rel="stylesheet" href="css/main.css">
+  <link blocking="render" rel="stylesheet" href="css/vendor.css">
+  <link blocking="render" rel="stylesheet" href="css/main.css">
 </head>
 
 <body class="page__body">
@@ -275,7 +275,7 @@
         </label>
         <label class="order__label order__label-tel">
           <span class="order__text">Номер телефона</span>
-          <input autocomplete="on" type="tel" tabindex="3" name="Телефон" class="input-reset modal__tel order__input">
+          <input autocomplete="off" type="tel" tabindex="3" name="Телефон" class="input-reset modal__tel order__input">
         </label>
         <label class="order__label">
           <span class="order__text">Электронная почта</span>
@@ -488,7 +488,7 @@
         </h3>
         <form id="serviceForm" action="#" class="form service__form" method="POST" enctype="multipart/form-data">
           <label class="form__label service__label">
-            <input id="serviceTel" autocomplete="on" type="tel" name="Телефон"
+            <input id="serviceTel" autocomplete="off" type="tel" name="Телефон"
               class="input-reset service__input service__tel service-tel form__input" placeholder="Номер телефона">
             <button id="serviceFormBtn" class="btn-reset btn form__btn">Записаться</button>
           </label>
