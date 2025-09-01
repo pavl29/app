@@ -10128,12 +10128,13 @@ module.exports = { nanoid, customAlphabet }
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_ex_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/ex.js */ "./src/js/components/ex.js");
-/* harmony import */ var _components_actually_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/actually.js */ "./src/js/components/actually.js");
-/* harmony import */ var _components_AOS_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/AOS.js */ "./src/js/components/AOS.js");
-/* harmony import */ var _components_cartDeep_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/cartDeep.js */ "./src/js/components/cartDeep.js");
-/* harmony import */ var _components_validate_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/validate.js */ "./src/js/components/validate.js");
-/* harmony import */ var _components_signUp_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/signUp.js */ "./src/js/components/signUp.js");
+/* harmony import */ var _components_ids_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/ids.js */ "./src/js/components/ids.js");
+/* harmony import */ var _components_ex_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/ex.js */ "./src/js/components/ex.js");
+/* harmony import */ var _components_actually_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/actually.js */ "./src/js/components/actually.js");
+/* harmony import */ var _components_AOS_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/AOS.js */ "./src/js/components/AOS.js");
+/* harmony import */ var _components_cartDeep_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/cartDeep.js */ "./src/js/components/cartDeep.js");
+/* harmony import */ var _components_validate_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/validate.js */ "./src/js/components/validate.js");
+/* harmony import */ var _components_signUp_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/signUp.js */ "./src/js/components/signUp.js");
 
 
 
@@ -10141,7 +10142,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-// import search  from './components/search.js';
 
 /***/ }),
 
@@ -10234,6 +10234,22 @@ document.addEventListener('DOMContentLoaded', function () {
   const closePopupButton2 = document.getElementById('close-popup-button');
   const cartPreloader = document.querySelector('.spinner');
   const orderBtnText = document.querySelector('.orderBtnText');
+  // const categoryItems = document.querySelectorAll('li');
+  // const categoryListAmplifiers = document.querySelectorAll('#amplifiers li');
+  // const categoryListSubwoofers = document.querySelectorAll('#subwoofers li');
+
+  // categoryItems.forEach((item, index) => {
+  //     item.setAttribute('data-id', index + 1);
+  // });
+
+  //   categoryListAmplifiers.forEach((item, index) => {
+  //     item.setAttribute('data-id', index + categoryListAmplifiers.length + 10);
+  //   });
+
+  //   categoryListSubwoofers.forEach((item, index, id) => {
+  //       id = categoryListAmplifiers.length;
+  //     item.setAttribute('data-id', index + categoryListSubwoofers.length + id + 1);
+  // });
 
   // Данные корзины
   let cart = [];
@@ -10617,6 +10633,135 @@ document.addEventListener('DOMContentLoaded', function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _functions_burger_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../functions/burger.js */ "./src/js/functions/burger.js");
 
+
+/***/ }),
+
+/***/ "./src/js/components/ids.js":
+/*!**********************************!*\
+  !*** ./src/js/components/ids.js ***!
+  \**********************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+class StaticIdManager {
+  constructor() {
+    this.config = {
+      domain: window.location.hostname,
+      storageKey: 'guaranteed_static_ids',
+      attribute: 'data-id'
+    };
+    this.initialize();
+  }
+  initialize() {
+    if (!this.checkStorageSupport()) return;
+    this.loadData();
+    this.processPage();
+    this.saveData();
+  }
+  checkStorageSupport() {
+    try {
+      return typeof Storage !== 'undefined' && localStorage !== null;
+    } catch {
+      return false;
+    }
+  }
+  loadData() {
+    try {
+      const data = JSON.parse(localStorage.getItem(this.config.storageKey) || '{}');
+      this.domainData = data[this.config.domain] || {
+        counter: 0,
+        elementMap: {},
+        created: new Date().toISOString()
+      };
+    } catch {
+      this.domainData = {
+        counter: 0,
+        elementMap: {},
+        created: new Date().toISOString()
+      };
+    }
+  }
+  saveData() {
+    try {
+      const allData = JSON.parse(localStorage.getItem(this.config.storageKey) || '{}');
+      allData[this.config.domain] = this.domainData;
+      localStorage.setItem(this.config.storageKey, JSON.stringify(allData));
+    } catch (error) {
+      console.warn('Не удалось сохранить данные:', error);
+    }
+  }
+  generateElementSignature(element) {
+    // Создаем уникальную сигнатуру элемента на основе содержимого и контекста
+    const content = element.textContent.trim().substring(0, 100);
+    const classes = element.className;
+    const parent = element.parentNode ? element.parentNode.tagName : '';
+    const siblings = element.parentNode ? element.parentNode.children.length : 0;
+    const index = Array.from(element.parentNode?.children || []).indexOf(element);
+    return `${content}|${classes}|${parent}|${siblings}|${index}`;
+  }
+  processPage() {
+    const elements = document.querySelectorAll('li');
+    let processed = 0;
+    elements.forEach(element => {
+      // Пропускаем элементы с уже установленным data-id
+      if (element.hasAttribute(this.config.attribute)) {
+        return;
+      }
+      const signature = this.generateElementSignature(element);
+      const existingId = this.domainData.elementMap[signature];
+      if (existingId !== undefined) {
+        // Используем существующий ID
+        element.setAttribute(this.config.attribute, existingId);
+        element.setAttribute('data-id-static', 'true');
+      } else {
+        // Создаем новый ID
+        this.domainData.counter++;
+        element.setAttribute(this.config.attribute, this.domainData.counter);
+        element.setAttribute('data-id-static', 'true');
+        element.setAttribute('data-id-domain', this.config.domain);
+        this.domainData.elementMap[signature] = this.domainData.counter;
+      }
+      processed++;
+    });
+    if (processed > 0) {}
+  }
+
+  // Статические методы для управления
+  static getStats() {
+    try {
+      const data = JSON.parse(localStorage.getItem('guaranteed_static_ids') || '{}');
+      const domain = window.location.hostname;
+      return {
+        domain: domain,
+        totalIds: data[domain] ? data[domain].counter : 0,
+        elementCount: data[domain] ? Object.keys(data[domain].elementMap).length : 0
+      };
+    } catch {
+      return {
+        error: 'Не удалось получить статистику'
+      };
+    }
+  }
+  static resetDomain() {
+    try {
+      const data = JSON.parse(localStorage.getItem('guaranteed_static_ids') || '{}');
+      delete data[window.location.hostname];
+      localStorage.setItem('guaranteed_static_ids', JSON.stringify(data));
+      return true;
+    } catch {
+      return false;
+    }
+  }
+}
+
+// Автоматическая инициализация
+document.addEventListener('DOMContentLoaded', function () {
+  new StaticIdManager();
+});
+
+// Глобальный доступ
+window.StaticIDManager = StaticIdManager;
 
 /***/ }),
 
