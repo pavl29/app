@@ -10135,6 +10135,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_cartDeep_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/cartDeep.js */ "./src/js/components/cartDeep.js");
 /* harmony import */ var _components_validate_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/validate.js */ "./src/js/components/validate.js");
 /* harmony import */ var _components_signUp_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/signUp.js */ "./src/js/components/signUp.js");
+/* harmony import */ var _components_flip_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/flip.js */ "./src/js/components/flip.js");
+
 
 
 
@@ -10633,6 +10635,26 @@ document.addEventListener('DOMContentLoaded', function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _functions_burger_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../functions/burger.js */ "./src/js/functions/burger.js");
 
+
+/***/ }),
+
+/***/ "./src/js/components/flip.js":
+/*!***********************************!*\
+  !*** ./src/js/components/flip.js ***!
+  \***********************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+let card = document.querySelectorAll('.flip-card-inner');
+let flipCardFront = document.querySelectorAll('.flip-card-front');
+let flipCardBack = document.querySelectorAll('.flip-card-back');
+for (let i = 0; i < card.length; i++) {
+  card[i].addEventListener("click", function () {
+    flipCardFront[i].classList.toggle("flip-card-active");
+    flipCardBack[i].classList.toggle("flip-card-active");
+  });
+}
 
 /***/ }),
 
