@@ -1,0 +1,28 @@
+.delivery__title {
+  margin-bottom: 25px;
+}
+.delivery__subtitle {
+  margin-bottom: 25px;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 29px;
+  color: rgb(0, 0, 0);
+}
+.delivery__text {
+  margin-bottom: 30px;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 29px;
+  color: rgb(0, 0, 0);
+}
+.delivery__list {
+  list-style-position: inside;
+  margin-bottom: 30px;
+}
+.delivery__item {
+  margin-bottom: 20px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+  color: rgb(0, 0, 0);
+}
