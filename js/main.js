@@ -10635,19 +10635,20 @@ document.addEventListener('DOMContentLoaded', function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _functions_burger_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../functions/burger.js */ "./src/js/functions/burger.js");
 
-let input = document.querySelector('input');
 
-// Получаем все обработчики события paste
-const eventListeners = getEventListeners ? getEventListeners(input).paste : [];
+// let input = document.querySelector('input');
 
-// Удаляем все обработчики, которые вызывают preventDefault()
-if (eventListeners) {
-  eventListeners.forEach(listener => {
-    if (listener.listener.toString().includes('preventDefault')) {
-      input.removeEventListener('paste', listener.listener);
-    }
-  });
-}
+// // Получаем все обработчики события paste
+// const eventListeners = getEventListeners ? getEventListeners(input).paste : [];
+
+// // Удаляем все обработчики, которые вызывают preventDefault()
+// if (eventListeners) {
+//   eventListeners.forEach(listener => {
+//     if (listener.listener.toString().includes('preventDefault')) {
+//       input.removeEventListener('paste', listener.listener);
+//     }
+//   });
+// }
 
 /***/ }),
 
