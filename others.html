@@ -19,13 +19,9 @@
   <link href="fonts/GilroyMedium.woff2" as="font" type="font/woff2" crossorigin>
   <link href="fonts/GilroyRegular.woff2" as="font" type="font/woff2" crossorigin>
   <link href="fonts/GilroySemibold.woff2" as="font" type="font/woff2" crossorigin>
-  <script defer src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
-  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-  <script defer
-    src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script>
-  <script defer src="js/main.js"></script>
-  <link blocking="render"  rel="stylesheet" href="css/vendor.css">
+  <link blocking="render" rel="stylesheet" href="css/vendor.css">
   <link blocking="render" rel="stylesheet" href="css/main.css">
+  <script defer src="js/main.js"></script>
 </head>
 
 <body class="page__body">
@@ -514,7 +510,7 @@
         </h3>
         <form id="serviceForm" action="#" class="form service__form" method="POST" enctype="multipart/form-data">
           <label class="form__label service__label">
-            <input id="serviceTel" autocomplete="off" type="tel" name="Телефон"
+            <input id="serviceTel" type="tel" name="Телефон"
               class="input-reset service__input service__tel service-tel form__input" placeholder="Номер телефона">
             <button id="serviceFormBtn" class="btn-reset btn form__btn">Записаться</button>
           </label>
