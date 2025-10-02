@@ -10636,19 +10636,47 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _functions_burger_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../functions/burger.js */ "./src/js/functions/burger.js");
 
 
-// let input = document.querySelector('input');
+// Для всех существующих input
+document.querySelectorAll('input').forEach(input => {
+  input.addEventListener('paste', e => {
+    // Ничего не делаем - разрешаем стандартное поведение
+    // Это прямая противоположность e.preventDefault()
+  }, {
+    capture: true,
+    passive: true
+  });
+});
 
-// // Получаем все обработчики события paste
-// const eventListeners = getEventListeners ? getEventListeners(input).paste : [];
-
-// // Удаляем все обработчики, которые вызывают preventDefault()
-// if (eventListeners) {
-//   eventListeners.forEach(listener => {
-//     if (listener.listener.toString().includes('preventDefault')) {
-//       input.removeEventListener('paste', listener.listener);
-//     }
-//   });
-// }
+// Для динамически добавленных input
+new MutationObserver(mutations => {
+  mutations.forEach(mutation => {
+    mutation.addedNodes.forEach(node => {
+      if (node.nodeType === 1) {
+        // Element node
+        if (node.tagName === 'INPUT') {
+          node.addEventListener('paste', e => {
+            // Разрешаем вставку
+          }, {
+            capture: true,
+            passive: true
+          });
+        }
+        // Ищем input внутри добавленных элементов
+        node.querySelectorAll?.('input').forEach(input => {
+          input.addEventListener('paste', e => {
+            // Разрешаем вставку
+          }, {
+            capture: true,
+            passive: true
+          });
+        });
+      }
+    });
+  });
+}).observe(document.body, {
+  childList: true,
+  subtree: true
+});
 
 /***/ }),
 
