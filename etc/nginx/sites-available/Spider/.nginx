@@ -1,4 +1,13 @@
 server {
+    # Вариант 1: X-Frame-Options
+add_header X-Frame-Options "SAMEORIGIN";
+
+# Вариант 2: Content-Security-Policy
+add_header Content-Security-Policy "frame-ancestors 'self'";
+
+# Или оба сразу
+add_header X-Frame-Options "SAMEORIGIN";
+add_header Content-Security-Policy "frame-ancestors 'self'";
     listen 80;
     server_name yourdomain.com;
     root /var/www/yourdomain.com;
