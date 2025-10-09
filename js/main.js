@@ -10191,23 +10191,55 @@ aos__WEBPACK_IMPORTED_MODULE_0__.init({
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-let date = new Date();
-let nowDay = date.getDay();
-let nowHour = date.getHours();
-const isOpen = document.querySelector('#open');
-const isClosed = document.querySelector('#closed');
-function workTime(day, hour) {
-  if (day < '6' && hour >= '10' && hour < '19') {
-    isOpen.style.display = 'block';
-  } else if (day == '6' && hour >= '10' && hour < '18') {
-    isOpen.style.display = 'block';
-  } else if (day == '0' && hour >= '10' && hour < '18') {
-    isOpen.style.display = 'block';
+// let date = new Date();
+
+// let nowDay = date.getDay();
+
+// let nowHour = date.getHours();
+
+// const isOpen = document.querySelector('#open');
+
+// const isClosed = document.querySelector('#closed');
+
+// function workTime(day, hour) {
+
+//   if (day < '6' && hour >= '10' && hour < '19') {
+//     isOpen.style.display = 'block';
+//   } else if (day == '6' && hour >= '10' && hour < '18') {
+//     isOpen.style.display = 'block';
+//   } else if (day == '0' && hour >= '10' && hour < '18') {
+//     isOpen.style.display = 'block';
+//   } else {
+//     isClosed.style.display = 'block';
+//   }
+// }
+
+// workTime(nowDay, nowHour)
+
+const currentDate = new Date();
+const currentDay = currentDate.getDay();
+const currentHour = currentDate.getHours();
+const openElement = document.querySelector('#open');
+const closedElement = document.querySelector('#closed');
+function isBusinessOpen(day, hour) {
+  if (day === 0 || day === 6) {
+    return hour >= 10 && hour < 18;
+  } else if (day >= 1 && day <= 5) {
+    return hour >= 10 && hour < 19;
+  }
+  return false;
+}
+function updateBusinessStatus() {
+  const isOpen = isBusinessOpen(currentDay, currentHour);
+  if (isOpen) {
+    openElement.style.display = 'block';
+    closedElement.style.display = 'none';
   } else {
-    isClosed.style.display = 'block';
+    openElement.style.display = 'none';
+    closedElement.style.display = 'block';
   }
 }
-workTime(nowDay, nowHour);
+updateBusinessStatus();
 
 /***/ }),
 
@@ -10635,48 +10667,6 @@ document.addEventListener('DOMContentLoaded', function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _functions_burger_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../functions/burger.js */ "./src/js/functions/burger.js");
 
-
-// Для всех существующих input
-document.querySelectorAll('input').forEach(input => {
-  input.addEventListener('paste', e => {
-    // Ничего не делаем - разрешаем стандартное поведение
-    // Это прямая противоположность e.preventDefault()
-  }, {
-    capture: true,
-    passive: true
-  });
-});
-
-// Для динамически добавленных input
-new MutationObserver(mutations => {
-  mutations.forEach(mutation => {
-    mutation.addedNodes.forEach(node => {
-      if (node.nodeType === 1) {
-        // Element node
-        if (node.tagName === 'INPUT') {
-          node.addEventListener('paste', e => {
-            // Разрешаем вставку
-          }, {
-            capture: true,
-            passive: true
-          });
-        }
-        // Ищем input внутри добавленных элементов
-        node.querySelectorAll?.('input').forEach(input => {
-          input.addEventListener('paste', e => {
-            // Разрешаем вставку
-          }, {
-            capture: true,
-            passive: true
-          });
-        });
-      }
-    });
-  });
-}).observe(document.body, {
-  childList: true,
-  subtree: true
-});
 
 /***/ }),
 
