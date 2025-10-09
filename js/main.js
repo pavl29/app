@@ -10136,6 +10136,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_validate_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/validate.js */ "./src/js/components/validate.js");
 /* harmony import */ var _components_signUp_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/signUp.js */ "./src/js/components/signUp.js");
 /* harmony import */ var _components_flip_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/flip.js */ "./src/js/components/flip.js");
+/* harmony import */ var _components_upButton_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/upButton.js */ "./src/js/components/upButton.js");
+
 
 
 
@@ -10843,6 +10845,51 @@ document.querySelector('#serviceForm').addEventListener('submit', async e => {
   await xhr.open('POST', 'mail.php', true);
   await xhr.send(serviceformData);
   self.reset();
+});
+
+/***/ }),
+
+/***/ "./src/js/components/upButton.js":
+/*!***************************************!*\
+  !*** ./src/js/components/upButton.js ***!
+  \***************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+document.addEventListener('DOMContentLoaded', function () {
+  const backToTopButton = document.getElementById('backToTop');
+  function toggleBackToTop() {
+    if (window.pageYOffset > 300) {
+      backToTopButton.classList.add('show');
+    } else {
+      backToTopButton.classList.remove('show');
+    }
+  }
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
+  window.addEventListener('scroll', toggleBackToTop);
+  backToTopButton.addEventListener('click', scrollToTop);
+  backToTopButton.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      scrollToTop();
+    }
+  });
+  let scrollTimeout;
+  window.addEventListener('scroll', function () {
+    if (scrollTimeout) {
+      clearTimeout(scrollTimeout);
+    }
+    scrollTimeout = setTimeout(toggleBackToTop, 10);
+  });
+  toggleBackToTop();
+  backToTopButton.setAttribute('aria-label', 'Вернуться к началу страницы');
+  backToTopButton.setAttribute('role', 'button');
 });
 
 /***/ }),
